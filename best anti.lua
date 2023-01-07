@@ -9,14 +9,24 @@
 local UserInputService = game:GetService("UserInputService")
 
 local function onInputBegan(input, _gameProcessed)
-	if input.KeyCode == Enum.KeyCode.G then
+	if input.KeyCode == Enum.KeyCode.Z then
 		getgenv().antilock = true
+        game.StarterGui:SetCore("SendNotification", {
+        Title = "On";
+        Text = "Antilock Enabled";
+        Duration = 1;
+        })
 	end
 end
 
 local function onInputEnded(input, _gameProcessed)
-	if input.KeyCode == Enum.KeyCode.G then
+	if input.KeyCode == Enum.KeyCode.Z then
 		getgenv().antilock = false
+		game.StarterGui:SetCore("SendNotification", {
+        Title = "Off";
+        Text = "Antilock Disabled";
+        Duration = 1;
+        })
 	end
 end
 
@@ -32,3 +42,14 @@ game:GetService("RunService").Heartbeat:Connect(function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = abc
     end 
 end)
+
+
+
+
+
+
+
+
+
+
+
